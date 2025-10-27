@@ -65,3 +65,10 @@ UID CHAR(8) NOT NULL,	            --Identifies the exact physical copy that's be
 FOREIGN KEY (TransactionID) REFERENCES UserTransaction(TransactionID),
 FOREIGN KEY (UID) REFERENCES Client(UID)
 );
+
+-- Creates Pays relationship table: Eric 
+CREATE TABLE IF NOT EXISTS Pays(
+FeeID CHAR(8) NOT NULL PRIMARY KEY,       -- Identifies the fee being paid 
+ClientID CHAR(8) NOT NULL,                -- Identification number for the client who pays the fee
+FOREIGN KEY (ClientID) REFERENCES Client(ClientID)
+);
