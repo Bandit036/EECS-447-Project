@@ -200,7 +200,17 @@ INSERT INTO Rented (TransactionID, CopyID) VALUES
 --~~~~~~~~~~~~~~~~~~~~~~~~~
 
 --Luffy checks out Great Gatsby, helped by Mike Wazowski: Jaiden
-INSERT INTO UserTransaction VALUES ('T0000001', 0, 'C0000001', 'U0000001', 'U0000002', '2025-10-01', '2025-10-15', NULL);
+INSERT INTO UserTransaction (TransactionID, LateFee, CopyID, ClientId, LibrarianID, CheckoutDate, DueDate, ReturnDate) VALUES 
+  ('T0000001', 0.00, 'C0000001', 'U0000001', 'U0000002', '2025-10-01', '2025-10-15', NULL), -- Luffy rents The Great Gatsby, still out 
+  ('T0000002', '0.00', 'C00000004', 'U0000002', 'U0000007', '2025-11-02', '2025-11-16', '2025-11-03'), -- Frank rents clean code 
+  ('T0000003', 0.00, 'C0000006', 'U0000006', 'U0000009', '2025-10-05', '2025-10-19', '2025-10-17'), -- Charlie rents The Hobbit
+  ('T0000004', 1.50, 'C0000008', 'U0000004', 'U0000010', '2025-10-10', '2025-10-24', '2025-10-27'), -- Dee rents Dune (late)
+  ('T0000005', 0.00, 'C0000013', 'U0000003', 'U0000008', '2025-10-12', '2025-10-26', '2025-10-25'), -- Dennis rents Arrival
+  ('T0000006', 0.75, 'C0000016', 'U0000002', 'U0000008', '2025-10-14', '2025-10-28', '2025-10-30'), -- Frank rents Interstellar (1 day late)
+  ('T0000007', 0.00, 'C0000019', 'U0000005', 'U0000009', '2025-10-18', '2025-11-01', NULL),         -- Mac rents The Martian, not returned yet
+  ('T0000008', 0.00, 'C0000024', 'U0000001', 'U0000007', '2025-10-20', '2025-11-03', '2025-11-02'), -- Luffy rents Time Magazine
+  ('T0000009', 2.25, 'C0000028', 'U0000002', 'U0000010', '2025-10-22', '2025-11-05', '2025-11-09'), -- Frank rents IEEE Spectrum (overdue)
+  ('T0000010', 0.00, 'C0000020', 'U0000004', 'U0000007', '2025-10-25', '2025-11-08', NULL);         -- Dee rents Inside Out, still out
 
 --~~~~~~~~~~~~~~~~~~~~~~~~~
 --    Assists
@@ -241,7 +251,8 @@ Insert INTO Assists VALUES ('U0000010', 'T00000010');
 --~~~~~~~~~~~~~~~~~~~~~~~~~
 --    Pays
 --~~~~~~~~~~~~~~~~~~~~~~~~~
-
+Insert INTO Pays (FID, UID) VALUES
+(
 --~~~~~~~~~~~~~~~~~~~~~~~~~
 --    FEE
 --~~~~~~~~~~~~~~~~~~~~~~~~~
